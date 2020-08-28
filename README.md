@@ -1,19 +1,20 @@
 # simulation-methods
-Package containing some simple models for comparing outputs of simulated systems 
+Package containing some simple models and methods used for simulation
 
 
 ## General Use
 
-Currently the library only has support for Bernoulli selection procedures. These
-procedures require the caller to create an interface to their system by extending the 
-BernoulliPopulation and implementing a generate_outcome method that returns a 1 or a 0.
+The library currently has support for bernoulli ranking and selection procedures, system output comparison, and simple
+simulation models.
 
 You can install the package by running the following command: \
 `pip install git+https://github.com/bsatterwhite3/simulation-methods.git`
 
 ### Example Use
-The following example shows how to run one of the Bernoulli selection procedures. This example will take a thousand sample
-max from each population to try to determine a winner
+The following example shows how to run one of the Bernoulli selection procedures. These
+procedures require the caller to create an interface to their system by extending the 
+BernoulliPopulation and implementing a generate_outcome method that returns a 1 or a 0. This example will take 1000 samples
+max from each population to try to determine a winner. 
 
 ```
 from simulation_methods.procedures import GenericBernoulliPopulation, BernoulliBechhoferKulkarni
@@ -30,6 +31,8 @@ winner = bernoulli_bk.select_best_population()  # Winner would most likely be po
 ### Project Structure
 
 - `procedures.py`: contains implementations from various papers on ranking/selection procedures
+- `methods.py`: contains methods for comparing outputs of simulations
+- `models.py`: contains models that can be used for simulation, like Brownian Motion
 
 ### Installing
 

@@ -18,10 +18,10 @@ class TestBrownianMotion(object):
 
         bm = models.BrownianMotion()
         steps = 5
-        bm.run_simulation(steps, 0)
+        outcome = bm.run_simulation(steps, 0)
 
         expected_history = [0, 0.5, 1, 1.5, 2, 2.5]
         expected_result = 2.5
 
-        assert bm.history == expected_history
-        assert bm.result == expected_result
+        assert outcome.history_vector == expected_history
+        assert outcome.result == expected_result
